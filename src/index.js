@@ -1,5 +1,5 @@
 import React from "react";
-import Root from './components/Root'
+//import Root from './roots/roots'
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -14,7 +14,9 @@ const middleware = [ thunk ];
 const store = createStore(reducers, applyMiddleware(...middleware));
 store.dispatch(init());
 ReactDOM.render(
-  <Root store={store} />,
+  <Provider store={store}>
+    <App/>
+  </Provider>,
   document.getElementById("root")
 );
 

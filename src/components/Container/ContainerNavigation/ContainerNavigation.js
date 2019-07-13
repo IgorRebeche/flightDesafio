@@ -19,6 +19,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {connect} from 'react-redux';
+import {onNavItemClick} from '../../../actions/#Root'
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -82,7 +83,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ContainerNavigation() {
+function ContainerNavigation(props) {
+  console.log('props ',props);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -142,9 +144,9 @@ function ContainerNavigation() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Home', 'Flights', 'Passangers', 'Tickets'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon onClick ={() => {props.onNavItemClick(text)}}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -158,4 +160,8 @@ function ContainerNavigation() {
   );
 }
 
-export default connect()(ContainerNavigation);
+const mapDispatchProps = () => {
+  //return ({})
+}
+
+export default connect(null, {onNavItemClick})(ContainerNavigation);
