@@ -20,36 +20,40 @@ export const toogleFlight = () => dispatch => {
 }
 export const onNavItemClick = (navItem) => dispatch => {
     console.log('Clicando no NAV_Item' + navItem);
-    switch(navItem){
-        case 'Home':
-         dispatch({
-            type: types.TOOGLE_FLIGHTS,
-            view: navItem
-        });
-        break;   
-        case 'Flights':
-            dispatch({
-            type: types.TOOGLE_FLIGHTS,
-            view: navItem
-        });
-        break;
-        case 'Passangers':
-        dispatch({
-            type: types.TOOGLE_PASSANGERS,
-            view: navItem
-        });
-        break;
-        case 'Tickets':
-        dispatch({
-            type: types.TOOGLE_TICKETS,
-            view: navItem
-        });
-        break;
-        default:
-            dispatch({
-            type: types.TOOGLE_TICKETS,
-            view: navItem
-        });         
-    }
+    dispatch({
+        type: types.TOGGLE_VIEW,
+        view: navItem
+    });
+    // switch(navItem){
+    //     case 'Home':
+    //      dispatch({
+    //         type: types.TOGGLE_VIEW,
+    //         view: navItem
+    //     });
+    //     break;   
+    //     case 'Flights':
+    //         dispatch({
+    //         type: types.TOGGLE_VIEW,
+    //         view: navItem
+    //     });
+    //     break;
+    //     case 'Passangers':
+    //     dispatch({
+    //         type: types.TOGGLE_VIEW,
+    //         view: navItem
+    //     });
+    //     break;
+    //     case 'Tickets':
+    //     dispatch({
+    //         type: types.TOGGLE_VIEW,
+    //         view: navItem
+    //     });
+    //     break;
+    //     default:
+    //         dispatch({
+    //         type: types.TOGGLE_VIEW,
+    //         view: navItem
+    //     });         
+    // }
     
 }

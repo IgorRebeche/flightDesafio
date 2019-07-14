@@ -1,22 +1,25 @@
 import {combineReducers} from 'redux';
 import {showTableFlights}  from '../reducers/FlightReducer';
-import * as types from '../consts/Types'
+import {views} from '../consts/Types'
 
 export const toogleView = (state = [], action) => {
     var view;
     console.log('toogle view')
-    switch(action.types){
-        case types.TOOGLE_FLIGHTS:
+    switch(action.view){
+        case views.Home:
         view = action.view;
         break;
-        case types.TOOGLE_PASSANGERS:
+        case views.Flights:
         view = action.view;
         break;
-        case types.TOOGLE_TICKETS:
+        case views.PASSANGERS:
+        view = action.view;
+        break;
+        case views.Tickets:
         view = action.view;
         break;
         default:
-        view = action.view;
+        view = views.Home;
     }
     
     

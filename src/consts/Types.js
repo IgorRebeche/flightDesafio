@@ -1,4 +1,4 @@
-
+export const TOGGLE_VIEW = 'TOGGLE_VIEW';
 //TICKETS CONSTANTS
 export const TOOGLE_TICKETS = 'TOOGLE_TICKETS';
 export const CREATE_TICKET = 'CREATE_TICKET';
@@ -16,3 +16,10 @@ export const TOOGLE_PASSANGERS = 'TOOGLE_PASSANGERS';
 export const CREATE_PASSANGERS = 'CREATE_PASSANGERS';
 export const DELETE_PASSANGERS = 'DELETE_PASSANGERS';
 export const UPDATE_PASSANGERS = 'UPDATE_PASSANGERS';
+
+export const views = {
+    Home: 'Home',
+    Flights: 'Flights',
+    Tickets: 'Tickets',
+    PASSANGERS: 'Passangers'
+}

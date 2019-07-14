@@ -20,6 +20,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {connect} from 'react-redux';
 import {onNavItemClick} from '../../../actions/#Root'
+import {views} from '../../../consts/Types'
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -144,10 +145,10 @@ function ContainerNavigation(props) {
         </div>
         <Divider />
         <List>
-          {['Home', 'Flights', 'Passangers', 'Tickets'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon onClick ={() => {props.onNavItemClick(text)}}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          {Object.keys(views).map((text, index) => (
+            <ListItem button key={views[text]}>
+              <ListItemIcon onClick ={() => {props.onNavItemClick(views[text])}}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={views[text]} />
             </ListItem>
           ))}
         </List>
