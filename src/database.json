@@ -1,0 +1,85 @@
+{
+  "Tickets": [
+    {
+      "flight_id": 3006,
+      "passanger_name": "aowedijawodija",
+      "passanger_id": 1989,
+      "flight_destino": "1231",
+      "flight_date": "2019-07-17T17:22:29.251Z",
+      "id": 9
+    }
+  ],
+  "Passangers": [
+    {
+      "id": 1,
+      "nome": "Mehmet",
+      "sobrenome": "Baran",
+      "nationalID": 98998989872,
+      "sexo": "M"
+    },
+    {
+      "id": 2,
+      "nome": "dada",
+      "sobrenome": "Bardawdawdwaan",
+      "nationalID": 1988,
+      "sexo": "F"
+    },
+    {
+      "id": 3,
+      "nome": "aowedijawodija",
+      "sobrenome": "Bardawdawdwaan",
+      "nationalID": 1989,
+      "sexo": "F"
+    }
+  ],
+  "Flight": [
+    {
+      "id": 1,
+      "origin": "oooooooppp",
+      "flight_id": 3002,
+      "flight_destino": "9",
+      "flight_date": "2019-12-01T02:00:00.000Z",
+      "arrivalTime": "2019-12-01T02:00:00.000Z"
+    },
+    {
+      "origin": "dadawdw",
+      "flight_id": 3003,
+      "flight_destino": "21316",
+      "flight_date": "2019-07-13T02:48:00.000Z",
+      "arrivalTime": "2019-07-16T02:48:18.826Z",
+      "id": 4
+    },
+    {
+      "origin": "asdadad",
+      "flight_id": 3004,
+      "flight_destino": "34123",
+      "flight_date": "2019-07-17T17:03:59.935Z",
+      "arrivalTime": "2019-07-23T17:03:00.000Z",
+      "id": 7
+    },
+    {
+      "origin": "dawd",
+      "flight_id": 3005,
+      "flight_date": "2019-07-17T17:15:10.210Z",
+      "arrivalTime": "2019-07-17T17:15:10.216Z",
+      "flight_destino": "312",
+      "id": 8
+    },
+    {
+      "origin": "dadw",
+      "flight_id": 3006,
+      "flight_destino": "1231",
+      "flight_date": "2019-07-17T17:22:29.251Z",
+      "arrivalTime": "2019-07-17T17:22:29.257Z",
+      "id": 9
+    },
+    {
+      "origin": "rrrrrt",
+      "flight_id": 3007,
+      "flight_destino": "1313",
+      "flight_date": "2019-07-17T17:22:58.006Z",
+      "arrivalTime": "2019-07-17T17:22:58.010Z",
+      "id": 10
+    }
+  ]
+}

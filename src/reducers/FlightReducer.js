@@ -1,16 +1,49 @@
-import { CREATE_FLIGHT, DELETE_FLIGHT, UPDATE_FLIGHT } from "../consts/Types";
+import * as types from "../consts/Types";
 
 export const showTableFlights = (state = [], action) => {
-    console.log(action);
+  var showdata = [...state.show];
+
   switch (action.type) {
-    case CREATE_FLIGHT:
-        console.log('Criando Flight');
-        return state;
-    case DELETE_FLIGHT:
-        return state;
-    case UPDATE_FLIGHT:
-        return state;
+    case types.LOAD_TABLE:
+      let show = action.data.Flights;
+      //Tratar datas aqui para o Flight
+      return { ...state, show: show };
+
+    case types.CREATE_FLIGHT:
+      //Updating show
+      showdata.push(action.newData);
+      return {
+        ...state,
+        show: showdata
+      };
+
+    case types.DELETE_FLIGHT:
+      //Update show
+      showdata.splice(showdata.indexOf(action.oldData), 1);
+      return {
+        ...state,
+        show: showdata
+      };
+    case types.UPDATE_FLIGHT:
+      //Updating Show
+      showdata[
+        showdata.indexOf(action.oldData)
+      ] = formatDatesFlight(action.newData);
+      return {
+        ...state,
+        show: showdata
+      };
     default:
-        return state;
+      return state;
   }
 };
+
+
+//Helpers para o flight
+const formatDatesFlight = flightData => {
+    var departureTime = new Date(flightData.departureTime);
+    var arrivalTime = new Date(flightData.arrivalTime);
+    flightData.arrivalTime = arrivalTime;
+    flightData.departureTime = departureTime;
+    return flightData;
+  };

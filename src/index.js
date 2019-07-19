@@ -9,14 +9,28 @@ import { Provider } from "react-redux";
 import thunk from 'redux-thunk'
 import reducers from "./reducers/#Root";
 import {init} from "./actions/#Root"
+import {ThemeProvider} from '@material-ui/styles'
+import {createMuiTheme} from '@material-ui/core/styles'
+import { deepPurple, orange } from '@material-ui/core/colors';
 
+const theme = createMuiTheme({
+  palette: {
+    primary: deepPurple,
+    secondary: {
+      main: orange[500],
+    },
+  },
+});
 const middleware = [ thunk ];
 const store = createStore(reducers, applyMiddleware(...middleware));
 store.dispatch(init());
 ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  </ThemeProvider>
+  ,
   document.getElementById("root")
 );
 

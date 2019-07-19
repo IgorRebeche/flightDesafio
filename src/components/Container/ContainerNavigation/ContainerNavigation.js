@@ -21,6 +21,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import {connect} from 'react-redux';
 import {onNavItemClick} from '../../../actions/#Root'
 import {views} from '../../../consts/Types'
+import { MainProps } from './../../../configuration';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -85,9 +86,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ContainerNavigation(props) {
+  const theme = useTheme();
   console.log('props ',props);
   const classes = useStyles();
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   function handleDrawerOpen() {
@@ -120,7 +121,7 @@ function ContainerNavigation(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Mini variant drawer
+            {MainProps.nome_aplicativo}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -146,8 +147,9 @@ function ContainerNavigation(props) {
         <Divider />
         <List>
           {Object.keys(views).map((text, index) => (
-            <ListItem button key={views[text]}>
-              <ListItemIcon onClick ={() => {props.onNavItemClick(views[text])}}>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            
+            <ListItem button key={views[text]} onClick ={() => {props.onNavItemClick(views[text])}}>
+              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={views[text]} />
             </ListItem>
           ))}

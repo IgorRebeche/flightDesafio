@@ -6,8 +6,10 @@ import {createFlight} from '../../../actions/#Root'
 import Flight from '../../flight/Flight';
 import Passanger from '../../passanger/Passanger';
 import Ticket from '../../ticket/Ticket';
+import Home from './../../Home';
+
 const viewsCmp = {
-  Home: Flight,
+  Home: Home,
   Flights: Flight,
   Passangers: Passanger,
   Tickets: Ticket
@@ -26,9 +28,6 @@ const ContainerMain = (props, state) => {
   //console.log('props ',props)
   return (
     <div>
-      <Button onClick={() => props.createFlight()} variant="contained" color="primary" className={classes.button}>
-        Primary
-      </Button>
       {props.view}
     </div>
   );
