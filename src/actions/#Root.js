@@ -59,7 +59,7 @@ export const onNavItemClick = navItem => dispatch => {
 };
 
 export const onRowAdd = (newData, type, resolve, state) => {
-  console.log("Antes do resolve", type);
+  console.log("Antes do resolve ADD ", type, state);
   var endpoint;
   return dispatch => {
     switch (type) {
@@ -85,12 +85,20 @@ export const onRowAdd = (newData, type, resolve, state) => {
       .then(function(response) {
         resolve();
         newData.id = response.data.id;
-        dispatch({
+
+        Promise.resolve(dispatch({
           type: types.ADD_TABLE_ROW,
           newData: newData,
-          view: state.toogleView.view,
-          update_viewType: type
-        });
+          view: state.toogleView.view
+        })).then(()=>{
+            dispatch({
+            type: type,
+            newData: newData,
+            view: state.toogleView.view
+          });
+        })
+
+        
         console.log(response);
       })
       .catch(function(error) {
@@ -124,7 +132,12 @@ export const onRowUpdate = (oldData, newData, type, resolve, view) => {
         resolve();
         dispatch({
           type: types.UPDATE_TABLE_ROW,
-          update_viewType: type,
+          newData: newData,
+          oldData: oldData,
+          view: view
+        });
+        dispatch({
+          type: type,
           newData: newData,
           oldData: oldData,
           view: view
@@ -158,13 +171,19 @@ export const onRowDelete = (oldData, type, resolve, view) => {
         );
     }
     axios
-      .delete(endpoint + `/${oldData.id}`, oldData)
+      .delete(endpoint + `/${oldData.id}`)
       .then(function(response) {
         resolve();
         oldData.id = response.data.id;
+
         dispatch({
           type: types.DELETE_TABLE_ROW,
-          update_viewType: type,
+          oldData: oldData,
+          view: view
+        });
+
+        dispatch({
+          type: type,
           oldData: oldData,
           view: view
         });

@@ -16,7 +16,7 @@ const fetchData = async (setState, state) => {
 };
 
 const Table = props => {
-  console.log("cu", props);
+  console.log("Table Props", props);
   useEffect(() => {
     //fetchData(setState, state);
   }, []);
@@ -64,10 +64,9 @@ const Table = props => {
   );
 };
 const mapStateToProps = state => {
-  console.log("Tables State ", state.toogleView.view);
+  console.log("Table State ", state.toogleView.view);
   switch (state.toogleView.view) {
     case views.Flights:
-      console.log("mostrando flights", state.showTableFlights.show);
       return {
         ...state,
         data: state.showTableFlights.show

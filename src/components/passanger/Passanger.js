@@ -1,6 +1,7 @@
 import React from "react";
 import ContainerBody from "../Container/Container-Body/ContainerBody";
 import Table from './../table/Table';
+import { CREATE_PASSANGERS, UPDATE_PASSANGERS, DELETE_PASSANGERS } from "../../consts/Types";
 const tableConfig = {
   columns: [
     { title: "Nome", field: "nome" },
@@ -16,7 +17,7 @@ const tableConfig = {
 const Passanger = () => {
   return (
     <ContainerBody>
-      <Table name="Passanger" columns={tableConfig.columns}/>
+      <Table name="Passanger" columns={tableConfig.columns} onRowAddType={CREATE_PASSANGERS} onRowUpdateType={UPDATE_PASSANGERS} onRowDeleteType={DELETE_PASSANGERS}/>
     </ContainerBody>
   );
 };

@@ -40,12 +40,6 @@ function lookup(data) {
 }
 //lookup(loadTables.data.Passangers)
 const Ticket = ({ loadTables }) => {
-  const optionsC = [
-    { value: "Chocolate", label: "Chocolate" },
-    { value: "Strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "vanilla" }
-  ];
-  console.log(optionsC);
   /* Simple example */
   var lookupdata = lookup(loadTables.data);
   const tableConfig = {
@@ -62,7 +56,7 @@ const Ticket = ({ loadTables }) => {
       },
       { title: "Passanger ID", field: "passanger_id", editable: 'never'},
       { title: "Destination", field: "flight_destino", editable: 'never' },
-      { title: "Date", field: "flight_date", type: "numeric", editable: 'never'},
+      { title: "Date", field: "flight_date", type: "date", editable: 'never'},
       { title: "Seat", field: "flight_seat", type: "numeric" },
       {
         title: "Flight ID",
