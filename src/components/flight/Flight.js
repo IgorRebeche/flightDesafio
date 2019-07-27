@@ -6,9 +6,9 @@ import { CREATE_FLIGHT, DELETE_FLIGHT, UPDATE_FLIGHT } from "../../consts/Types"
 const tableConfig = {
   columns: [
     { title: "Origin", field: "origin" },
-    { title: "Destination", field: "flight_destino", type: "numeric" },
-    { title: "DepartureTime", field: "flight_date", type: "date" },
-    { title: "ArrivalTime", field: "arrivalTime", type: "date" }
+    { title: "Destination", field: "flight_destino" },
+    { title: "DepartureTime", field: "flight_departure", type: "datetime" },
+    { title: "ArrivalTime", field: "flight_arrival", type: "datetime" }
   ]
 };
 

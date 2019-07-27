@@ -208,12 +208,14 @@ const mergeDataTicket = (newData, state) => {
   });
 
   data.Flights.every(f => {
-    if (f.flight_id === newData.flight_id) {
+    if (f.id === newData.flight_id) {
       newData.flight_destino = f.flight_destino;
-      newData.flight_date = f.flight_date;
+      newData.flight_departure = f.flight_departure
+      newData.flight_arrival = f.flight_arrival
       return false;
     }
     return true;
   });
+  console.log('data', newData)
   return newData;
 };

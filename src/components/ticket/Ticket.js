@@ -18,8 +18,8 @@ function lookup(data) {
   data.Flights.forEach(Flight => {
     let opt = [
       {
-        value: Flight.flight_id,
-        label: Flight.flight_id
+        value: Flight.id,
+        label: Flight.id
       }
     ];
 
@@ -56,7 +56,8 @@ const Ticket = ({ loadTables }) => {
       },
       { title: "Passanger ID", field: "passanger_id", editable: 'never'},
       { title: "Destination", field: "flight_destino", editable: 'never' },
-      { title: "Date", field: "flight_date", type: "date", editable: 'never'},
+      { title: "Departure", field: "flight_departure", type: "datetime", editable: 'never'},
+      { title: "Arrival", field: "flight_arrival", type: "datetime", editable: 'never'},
       { title: "Seat", field: "flight_seat", type: "numeric" },
       {
         title: "Flight ID",
