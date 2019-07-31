@@ -1,22 +1,11 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import MaterialTable from "material-table";
 import "./Table.css";
-import { MainProps } from "./../../configuration";
 import { connect } from "react-redux";
 import { onRowAdd, onRowUpdate, onRowDelete } from "./../../actions/#Root";
 import { views } from "../../consts/Types";
 
-const fetchData = async (setState, state) => {
-  const result = await axios(MainProps.apiConfig.PASSANGERS_API);
-  console.log("OPAAA response ", result.data);
-  var data = result.data;
-  setState({ ...state, data });
-  console.log("OPAAA ", state);
-};
-
 const Table = props => {
-  console.log("Table Props", props);
   useEffect(() => {
     //fetchData(setState, state);
   }, []);
@@ -64,7 +53,6 @@ const Table = props => {
   );
 };
 const mapStateToProps = state => {
-  console.log("Table State ", state.toogleView.view);
   switch (state.toogleView.view) {
     case views.Flights:
       return {
@@ -84,8 +72,6 @@ const mapStateToProps = state => {
     default:
   }
 };
-
-//console.log('OPAAA ' , getData(MainProps.apiConfig.PASSANGERS_API));
 export default connect(
   mapStateToProps,
   { onRowAdd, onRowUpdate, onRowDelete }

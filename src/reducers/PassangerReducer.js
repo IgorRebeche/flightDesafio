@@ -1,7 +1,7 @@
 import * as types from "../consts/Types";
 
 export const showTablePassangers = (state = [], action) => {
-    console.log('Passanger Reducer', state, action)
+    //console.log('Passanger Reducer', state, action)
   var showdata = { ...state};
   switch (action.type) {
     case types.LOAD_TABLE:
@@ -18,7 +18,7 @@ export const showTablePassangers = (state = [], action) => {
     case types.DELETE_PASSANGERS:
       //Update show
       showdata.show.splice(showdata.show.indexOf(action.oldData), 1);
-      console.log('Deleting passanger',showdata)
+      //console.log('Deleting passanger',showdata)
       return {
         ...state,
         show: showdata.show

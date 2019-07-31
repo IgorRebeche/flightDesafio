@@ -1,5 +1,4 @@
 import React from "react";
-import ContainerBody from "../Container/Container-Body/ContainerBody";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,7 +16,6 @@ const useStyles = makeStyles(theme => ({
 }));
 const Home = props => {
   const classes = useStyles();
-  console.log(getSuspects(props.loadTables.data))
   return (
       <Grid container>
 
@@ -35,16 +33,15 @@ const Home = props => {
             container
             direction="column"
             justify="flex-start"
-            alignItems="left"
           >
             <Cards entity={'Tickets'}>
               {props.loadTables.data? props.loadTables.data.Tickets.length : 0}
             </Cards>
             <Cards entity={'Passangers'}>
-            {props.loadTables.data? props.loadTables.data.Passangers.length : 0}
+              {props.loadTables.data? props.loadTables.data.Passangers.length : 0}
             </Cards>
             <Cards entity={'Flights'}>
-            {props.loadTables.data ? props.loadTables.data.Flights.length : 0}
+              {props.loadTables.data ? props.loadTables.data.Flights.length : 0}
             </Cards>
           </Grid>
         </Grid>

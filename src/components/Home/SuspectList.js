@@ -8,7 +8,6 @@ import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -26,6 +25,8 @@ const SuspectList = ({ suspects, title }) => {
   const classes = useStyles();
   if (suspects === undefined) {
     return <div />;
+  }else{
+    //console.log(suspects);
   }
   return (
     <div className={classes.root}>
@@ -41,21 +42,22 @@ const SuspectList = ({ suspects, title }) => {
         <ExpansionPanelDetails>
           <List className={classes.root}>
             {suspects.map(passageiro => {
-              return Object.keys(passageiro).map(p => {
-
+              //Estudar erro de key duplicada.
+              return Object.keys(passageiro).map((p, i) => {
+                console.log(i)
                 if(passageiro[p].length < 2){
                   return <div></div>
                 }
 
                 return(
                   <div>
-                      <ListItem alignItems="flex-start">
+                      <ListItem key={passageiro[p][0].passanger_name} alignItems="flex-start">
                         <ListItemText
                           primary={
                             "Ticket ida: " +
-                            passageiro[p][0].flight_id +
+                            passageiro[p][0].id +
                             " Ticket volta: " +
-                            passageiro[p][1].flight_id
+                            passageiro[p][1].id
                           }
                           secondary={
                             <React.Fragment>

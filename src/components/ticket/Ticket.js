@@ -8,7 +8,6 @@ import {
 } from "../../consts/Types";
 import Select from "react-select";
 import { connect } from "react-redux";
-import { loadTables } from "./../../reducers/#Root";
 
 function lookup(data) {
   var options = {
@@ -35,12 +34,10 @@ function lookup(data) {
     ];
     options.lookupPassanger.push(opt[0]);
   });
-  console.log(options);
   return options;
 }
-//lookup(loadTables.data.Passangers)
+
 const Ticket = ({ loadTables }) => {
-  /* Simple example */
   var lookupdata = lookup(loadTables.data);
   const tableConfig = {
     columns: [

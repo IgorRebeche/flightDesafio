@@ -16,12 +16,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import {Flight, Ballot, AccountBox, Home} from '@material-ui/icons';
 import {connect} from 'react-redux';
 import {onNavItemClick} from '../../../actions/#Root'
-import {views} from '../../../consts/Types'
 import { MainProps } from './../../../configuration';
 const drawerWidth = 240;
 
@@ -88,7 +85,6 @@ const useStyles = makeStyles(theme => ({
 
 function ContainerNavigation(props) {
   const theme = useTheme();
-  console.log('props ',props);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -159,7 +155,7 @@ function ContainerNavigation(props) {
 
         <ListItem button key={"Tickets"} onClick ={() => {props.onNavItemClick("Tickets")}}>
               <ListItemIcon><Ballot/></ListItemIcon>
-              <ListItemText primary={"Home"} />
+              <ListItemText primary={"Tickets"} />
         </ListItem>
 
         <ListItem button key={"Passangers"} onClick ={() => {props.onNavItemClick("Passangers")}}>
@@ -174,10 +170,6 @@ function ContainerNavigation(props) {
       </main>
     </div>
   );
-}
-
-const mapDispatchProps = () => {
-  //return ({})
 }
 
 export default connect(null, {onNavItemClick})(ContainerNavigation);

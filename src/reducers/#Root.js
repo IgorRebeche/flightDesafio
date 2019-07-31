@@ -8,7 +8,6 @@ import { formatDatesFlight } from "./../helpers";
 export const loadTables = (state = [], action) => {
   var changedData = { ...state },
     viewData;
-  console.log('Root Reducer', state, action)
   switch (action.type) {
 
     case types.LOAD_TABLE:

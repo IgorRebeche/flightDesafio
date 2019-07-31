@@ -39,6 +39,26 @@
       "flight_departure": "2019-07-25T15:24:00.000Z",
       "flight_arrival": "2019-07-27T15:24:00.000Z",
       "id": 5
+    },
+    {
+      "passanger_name": "tyerere",
+      "flight_id": 1,
+      "flight_seat": "40",
+      "passanger_id": "42342432",
+      "flight_destino": "São Paulo",
+      "flight_departure": "2019-07-24T23:00:52.096Z",
+      "flight_arrival": "2019-07-25T23:00:00.000Z",
+      "id": 6
+    },
+    {
+      "passanger_name": "tyerere",
+      "flight_seat": "29",
+      "flight_id": 3,
+      "passanger_id": "42342432",
+      "flight_destino": "Rio de Janeiro",
+      "flight_departure": "2019-07-25T12:27:00.000Z",
+      "flight_arrival": "2019-07-26T00:27:00.000Z",
+      "id": 7
     }
   ],
   "Passangers": [
