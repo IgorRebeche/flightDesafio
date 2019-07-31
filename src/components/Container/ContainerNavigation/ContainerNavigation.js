@@ -18,6 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import {Flight, Ballot, AccountBox, Home} from '@material-ui/icons';
 import {connect} from 'react-redux';
 import {onNavItemClick} from '../../../actions/#Root'
 import {views} from '../../../consts/Types'
@@ -146,13 +147,25 @@ function ContainerNavigation(props) {
         </div>
         <Divider />
         <List>
-          {Object.keys(views).map((text, index) => (
-            
-            <ListItem button key={views[text]} onClick ={() => {props.onNavItemClick(views[text])}}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={views[text]} />
-            </ListItem>
-          ))}
+        <ListItem button key={"Home"} onClick ={() => {props.onNavItemClick("Home")}}>
+              <ListItemIcon><Home/></ListItemIcon>
+              <ListItemText primary={"Home"} />
+        </ListItem>
+        
+        <ListItem button key={"Flights"} onClick ={() => {props.onNavItemClick("Flights")}}>
+              <ListItemIcon><Flight/></ListItemIcon>
+              <ListItemText primary={"Flights"} />
+        </ListItem>
+
+        <ListItem button key={"Tickets"} onClick ={() => {props.onNavItemClick("Tickets")}}>
+              <ListItemIcon><Ballot/></ListItemIcon>
+              <ListItemText primary={"Home"} />
+        </ListItem>
+
+        <ListItem button key={"Passangers"} onClick ={() => {props.onNavItemClick("Passangers")}}>
+              <ListItemIcon><AccountBox/></ListItemIcon>
+              <ListItemText primary={"Passangers"} />
+        </ListItem>
         </List>
       </Drawer>
       <main className={classes.content}>

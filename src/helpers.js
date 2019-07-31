@@ -6,17 +6,28 @@ export const getSuspects = (data) => {
   var oneDayDif = getOneDayDif_flights(data);
   var suspects = [];
   //Filtrar passageiros com os ids de ida
-
+  
   oneDayDif.forEach((d)=>{
-
    var newArray = cpyTickets.filter((ticket, i) => {
     return d.ida === ticket.flight_id || d.volta.indexOf(ticket.flight_id) !== -1;
     })
-    suspects = suspects.concat(newArray)
+    var filterByName = {};
+    var seen = new Set();
+    var ticks = [];
+    newArray.forEach((ticket, i) => {
+      if(!seen.has(ticket.passanger_name)){
+        ticks = [];
+      }
+        seen.add(ticket.passanger_name);
+        ticks.push(ticket);
+        filterByName[ticket.passanger_name] = ticks;
+      })
+      suspects = suspects.concat(filterByName);
   })
   
   return suspects;
 }
+
 const getOneDayDif_flights = (data) => {
   var cpyFlights = [...data.Flights];
   var visitedPlaces = [];

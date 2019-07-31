@@ -23,10 +23,10 @@ const Home = props => {
 
         <Grid item xs={10}>
           <Paper className={classes.root}>
-            <Typography variant="h5" component="h3">
+            <Typography variant="h5" component="h3" align="left">
               Atividades Suspeitas
             </Typography>
-            <SuspectList title={'Ida e volta no mesmo dia'} suspects={['Jef', 'Alberto', 'Guilherme', 'Gustavo', 'Igor']}/>
+            <SuspectList Style="MarginTop: 20px;" title={'Ida e volta no mesmo dia'} suspects={getSuspects(props.loadTables.data)}/>
           </Paper>
         </Grid>
 
@@ -38,13 +38,13 @@ const Home = props => {
             alignItems="left"
           >
             <Cards entity={'Tickets'}>
-              345
+              {props.loadTables.data? props.loadTables.data.Tickets.length : 0}
             </Cards>
-            <Cards entity={'Passanger'}>
-              345
+            <Cards entity={'Passangers'}>
+            {props.loadTables.data? props.loadTables.data.Passangers.length : 0}
             </Cards>
             <Cards entity={'Flights'}>
-              345
+            {props.loadTables.data ? props.loadTables.data.Flights.length : 0}
             </Cards>
           </Grid>
         </Grid>
